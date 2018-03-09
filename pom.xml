@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+	    <groupId>com.ratel.cloud</groupId>
+	    <artifactId>ratel</artifactId>
+	    <version>0.0.1-SNAPSHOT</version>
+	    <relativePath>../ratel/pom.xml</relativePath>
+  </parent>
+  <artifactId>ratel-base</artifactId>
+  <name>ratel-base</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+   <!--配置项目发布工厂  -->
+  <distributionManagement>
+     <snapshotRepository>
+         <id>ratel-snapshot</id>
+         <name>User Project SNAPSHOTS</name>
+         <url>http://182.254.217.149:8081/nexus/content/repositories/ratelBaseSnapshots/</url>
+     </snapshotRepository>
+     <repository>
+          <id>ratel-releases</id>
+          <name>User Project Releases</name>
+          <url>http://182.254.217.149:8081/nexus/content/repositories/ratelBaseReleases/</url>
+     </repository>
+  </distributionManagement>
+  <dependencies>
+       <!-- 添加jetty的容器操作依赖 start-->
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty</artifactId>
+		</dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                 <exclusion>
+                       <groupId>org.springframework.boot</groupId>  
+                       <artifactId>spring-boot-starter-tomcat</artifactId>
+                 </exclusion>
+            </exclusions>
+         </dependency>
+		<!-- 添加jetty的容器操作依赖 end-->
+       <!--Swagger依赖配置  -->
+        <dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		</dependency>
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger-ui</artifactId>
+		</dependency>
+         <!--Redis配置依赖-->
+         <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId> 
+		</dependency>
+		<!-- Redis实现Session依赖 -->
+		<dependency>
+                <groupId>org.springframework.session</groupId>
+                <artifactId>spring-session</artifactId>
+        </dependency>
+        <dependency>
+			    <groupId>org.springframework.boot</groupId>
+			    <artifactId>spring-boot-starter-redis</artifactId>
+		</dependency>
+		<dependency>
+			    <groupId>org.springframework.session</groupId>
+			    <artifactId>spring-session-data-redis</artifactId>
+		</dependency>
+        <!-- actuator监控依赖包 -->
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+       <!--StopWatch类依赖-->
+       <dependency>
+		    <groupId>com.google.guava</groupId>
+		    <artifactId>guava</artifactId>
+		</dependency>
+       <!--添加AOP拦截器依赖包-->
+       <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+       <!-- 添加前端框架依赖 -->
+       <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
+		<!--设置thymeleaf非严依赖  -->
+		<dependency>
+		    <groupId>net.sourceforge.nekohtml</groupId>
+			<artifactId>nekohtml</artifactId>
+		</dependency>
+        <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+	    </dependency>
+	    <!--项目自动加载依赖库  start-->
+	    <dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>springloaded</artifactId>
+	    </dependency>
+	    <dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		<!--项目自动加载依赖库  end  -->
+		<!--mybatis依赖  -->
+		<dependency>
+			        <groupId>org.mybatis</groupId>
+			        <artifactId>mybatis</artifactId>
+	    </dependency>
+	    <!-- json依赖 -->
+	    <dependency>    
+				    <groupId>net.sf.json-lib</groupId>    
+				    <artifactId>json-lib</artifactId>
+				    <classifier>jdk15</classifier>    
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+		</dependency>
+		<!-- 工具类依赖 start-->
+		<dependency>
+			    <groupId>org.apache.commons</groupId>
+			    <artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			    <groupId>commons-codec</groupId>
+			    <artifactId>commons-codec</artifactId>
+		</dependency>
+		<!-- 工具类依赖 end -->
+		<!--  auth2.0依赖 start-->
+		<!-- <dependency>
+		         <groupId>org.apache.oltu.oauth2</groupId>
+		         <artifactId>org.apache.oltu.oauth2.authzserver</artifactId>
+		</dependency>
+	    <dependency>
+	              <groupId>org.apache.oltu.oauth2</groupId>
+	              <artifactId>org.apache.oltu.oauth2.dynamicreg.server</artifactId>
+	    </dependency>
+	    <dependency>
+	               <groupId>org.apache.oltu.oauth2</groupId>
+	               <artifactId>org.apache.oltu.oauth2.resourceserver</artifactId>
+	    </dependency>
+        <dependency>
+	                <groupId>org.apache.oltu.oauth2</groupId>
+	                <artifactId>org.apache.oltu.oauth2.resourceserver-filter</artifactId>
+        </dependency>
+        <dependency>
+	                <groupId>org.apache.oltu.oauth2</groupId>
+	                <artifactId>org.apache.oltu.oauth2.client</artifactId>
+        </dependency> -->
+        <!--  auth2.0依赖 end-->
+        <!-- fastdfs依赖 -->
+	    <!-- <dependency>
+					<groupId>com.github.kischang</groupId>
+					<artifactId>fastdfs-client</artifactId>
+		 </dependency> -->
+  </dependencies>
+  <build>
+		<finalName>ratel-base</finalName>
+  </build>
+</project>
