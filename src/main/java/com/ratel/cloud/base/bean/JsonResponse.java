@@ -10,7 +10,7 @@ package com.ratel.cloud.base.bean;
  */
 public class JsonResponse {
 	   /**
-	    * 异常类型
+	    * 异常类型     
 	    */
 	    private String errorType;
 	    /**
